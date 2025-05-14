@@ -48,6 +48,7 @@ const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps
         width={64}
         height={64}
         alt="Profile"
+        unoptimized
       />
       <div className="flex flex-col space-y-3 w-full">
         <div>

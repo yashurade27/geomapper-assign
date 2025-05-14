@@ -56,11 +56,12 @@ const UsersTable = () => {
                             <TableCell className="px-6 py-4">
                                 {profile.img ? (
                                     <Image
-                                        width={65} // Reduced the avatar size
-                                        height={65} // Reduced the avatar size
+                                        width={65} 
+                                        height={65} 
                                         src={profile.img}
                                         alt={profile.name}
-                                        className="w-16 h-16 rounded-full" // Reduced the image size
+                                        className="w-16 h-16 rounded-full" 
+                                        unoptimized
                                     />
                                 ) : (
                                     "N/A"

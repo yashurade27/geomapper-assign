@@ -14,6 +14,7 @@ const ViewProfile = ({ name, email, location, info, img, gender }: Profile) => {
           className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover"
           src={img || '/default-profile.png'}
           alt="Profile"
+          unoptimized
         />
         <h2 className="text-xl font-semibold text-gray-900 mt-2">{name}</h2>
         <p className="text-sm text-gray-600 mt-1">{info}</p>
