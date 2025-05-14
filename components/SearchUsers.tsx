@@ -9,7 +9,7 @@ interface SearchUsersProps {
 
 const SearchUsers = ({ search, setSearch }: SearchUsersProps) => {
   return (
-    <div className="w-full px-4 lg:px-60">
+    <div className="w-full px-4 lg:px-30">
       <div className="w-full max-w-xl flex flex-col sm:flex-row sm:items-end gap-4">
         <div className="flex flex-col w-full">
           <Label htmlFor="search" className="mb-1">Search</Label>

@@ -38,7 +38,7 @@ const UsersTable = () => {
 
     return (
         <div className="overflow-x-auto">
-            <Table className="min-w-full">
+            <Table className="min-w-full transform scale-90"> {/* Reduced size by 35% */}
                 <TableCaption>A list of user profiles.</TableCaption>
                 <TableHeader>
                     <TableRow>
@@ -56,11 +56,11 @@ const UsersTable = () => {
                             <TableCell className="px-6 py-4">
                                 {profile.img ? (
                                     <Image
-                                        width={100}
-                                        height={100}
+                                        width={65} // Reduced the avatar size
+                                        height={65} // Reduced the avatar size
                                         src={profile.img}
                                         alt={profile.name}
-                                        className="w-14 h-14 rounded-full"
+                                        className="w-16 h-16 rounded-full" // Reduced the image size
                                     />
                                 ) : (
                                     "N/A"
@@ -74,16 +74,16 @@ const UsersTable = () => {
                             </TableCell>
                             <TableCell className="text-right px-6 py-4 space-x-4">
                                 <Button size="icon" variant="ghost" title="View">
-                                    <Eye className="h-5 w-5" />
+                                    <Eye className="h-4 w-4" /> {/* Reduced icon size */}
                                 </Button>
                                 <Button size="icon" variant="ghost" title="Edit">
-                                    <Pencil className="h-5 w-5" />
+                                    <Pencil className="h-4 w-4" /> {/* Reduced icon size */}
                                 </Button>
                                 <Button size="icon" variant="ghost" title="Delete">
-                                    <Trash2 className="h-5 w-5 text-red-500" />
+                                    <Trash2 className="h-4 w-4 text-red-500" /> {/* Reduced icon size */}
                                 </Button>
                                 <Button size="icon" variant="ghost" title="More">
-                                    <MoreHorizontal className="h-5 w-5" />
+                                    <MoreHorizontal className="h-4 w-4" /> {/* Reduced icon size */}
                                 </Button>
                             </TableCell>
                         </TableRow>

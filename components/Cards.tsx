@@ -35,7 +35,7 @@ const Cards = ({ onSelectLocation, search }: CardsProps) => {
 
     if (isLoading) {
   return (
-    <div className="flex flex-col items-start gap-6 px-4 md:px-20 lg:px-60 w-full">
+    <div className="flex flex-col items-start gap-6 px-4 md:px-20 lg:px-30 w-full">
       {[...Array(10)].map((_, index) => (
         <div
           key={index}
@@ -65,27 +65,29 @@ const Cards = ({ onSelectLocation, search }: CardsProps) => {
   }
 
   return (
-    <div className="flex flex-col items-start gap-6 px-4 md:px-20 lg:px-60 w-full">
-      <Tabs defaultValue="account" className="w-full">
-  <TabsList className="flex space-x-2">
-    <TabsTrigger value="account">Profile</TabsTrigger>
-    <TabsTrigger value="view_on_map">View On Map</TabsTrigger>
-  </TabsList>
+  <div className="flex flex-col items-start gap-6 px-4 md:px-20 lg:px-30 w-full">
+    <Tabs defaultValue="account" className="w-full">
+      <TabsList className="flex space-x-2">
+        <TabsTrigger value="account">Profile</TabsTrigger>
+        <TabsTrigger value="view_on_map">View On Map</TabsTrigger>
+      </TabsList>
 
-  <TabsContent value="account">
-    <div className="flex flex-col gap-4">
-      {filteredProfiles.map((profile: Profile, index: number) => (
-        <Card key={index} {...profile} onShowMap={onSelectLocation} />
-      ))}
-    </div>
-  </TabsContent>
+      <TabsContent value="account">
+        <div className="flex flex-col gap-4">
+          {filteredProfiles.map((profile: Profile, index: number) => (
+            <div key={index} className="w-full max-w-4xl mx-auto">
+              <Card {...profile} onShowMap={onSelectLocation} />
+            </div>
+          ))}
+        </div>
+      </TabsContent>
 
-  <TabsContent value="view_on_map">
-    <MapAllView />
-  </TabsContent>
-</Tabs>
-    </div>
-  );
+      <TabsContent value="view_on_map">
+        <MapAllView />
+      </TabsContent>
+    </Tabs>
+  </div>
+);
 };
 
 export default Cards;

@@ -5,37 +5,36 @@ import { Profile } from "./Card";
 
 const ViewProfile = ({ name, email, location, info, img, gender }: Profile) => {
   return (
-    <div className="w-full max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="w-full max-w-xl mx-auto p-2 bg-white rounded-xl shadow-md">
 
       <div className="flex flex-col items-center text-center">
         <Image
-          width={100}
-          height={100}
-          className="w-32 h-32 rounded-full border-4 border-gray-300 object-cover"
+          width={40}
+          height={40}
+          className="w-16 h-16 rounded-full border-2 border-gray-300 object-cover"
           src={img || '/default-profile.png'}
           alt="Profile"
         />
-        <h2 className="text-4xl font-semibold text-gray-900 mt-4">{name}</h2>
-        <p className="text-lg text-gray-600 mt-2">{info}</p>
+        <h2 className="text-xl font-semibold text-gray-900 mt-2">{name}</h2>
+        <p className="text-sm text-gray-600 mt-1">{info}</p>
       </div>
 
-
-      <div className="flex flex-col gap-6 text-gray-700 mt-6">
+      <div className="flex flex-col gap-4 text-gray-700 mt-4">
         <div>
-          <p className="text-sm font-semibold text-gray-500">Location:</p>
-          <p className="text-lg">{location.city}, {location.country}</p>
+          <p className="text-xs font-semibold text-gray-500">Location:</p>
+          <p className="text-sm">{location.city}, {location.country}</p>
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-gray-500">Email:</p>
-          <a href={`mailto:${email}`} className="text-blue-600 hover:underline text-lg">
+          <p className="text-xs font-semibold text-gray-500">Email:</p>
+          <a href={`mailto:${email}`} className="text-blue-600 hover:underline text-sm">
             {email}
           </a>
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-gray-500">Gender:</p>
-          <p className="text-lg">{gender || "Not specified"}</p>
+          <p className="text-xs font-semibold text-gray-500">Gender:</p>
+          <p className="text-sm">{gender || "Not specified"}</p>
         </div>
       </div>
     </div>

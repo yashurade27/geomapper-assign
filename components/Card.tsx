@@ -38,24 +38,24 @@ interface CardProps extends Profile {
 }
 
 const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps) => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);  // State for controlling Drawer visibility
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col md:flex-row items-start md:items-center gap-6">
+    <div className="w-full max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col md:flex-row items-start md:items-center gap-6">
       <Image
-        className="w-24 h-24 rounded-full border object-cover shrink-0"
+        className="w-16 h-16 rounded-full border object-cover shrink-0"
         src={img || '/default-profile.png'}
-        width={100}
-        height={100}
+        width={64}
+        height={64}
         alt="Profile"
       />
-      <div className="flex flex-col space-y-4 w-full">
+      <div className="flex flex-col space-y-3 w-full">
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">{name}</h2>
+          <h2 className="text-xl font-semibold text-gray-900">{name}</h2>
           <p className="text-sm text-gray-500">{info}</p>
         </div>
 
-        <div className="flex flex-wrap items-center text-sm text-gray-500 gap-2">
+        <div className="flex flex-wrap items-center text-xs text-gray-500 gap-1">
           <div className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
             <span>{location.city}, {location.country}</span>
@@ -79,12 +79,11 @@ const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps
               toast.success(`Showing ${location.city}, ${location.country} on map`);
             }}
           >
-            <MapPin className="mr-1 w-4 h-4" />
+            <MapPin className="mr-1 w-3 h-3" />
             Show On Map
           </Button>
         </div>
       </div>
-
 
       <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
         <DrawerTrigger />

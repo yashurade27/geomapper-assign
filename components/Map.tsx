@@ -18,9 +18,11 @@ const Map = ({ lat, lng }: Location) => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY || "",
         version: "weekly",
+        libraries: ["marker"], 
       });
 
       const { Map } = await loader.importLibrary("maps");
+      const { AdvancedMarkerElement } = await loader.importLibrary("marker"); // Load the marker library
 
       const position = { lat, lng };
 
@@ -31,7 +33,7 @@ const Map = ({ lat, lng }: Location) => {
       };
 
       const map = new Map(mapRef.current as HTMLDivElement, mapOptions);
-      new google.maps.Marker({ position, map });
+      new AdvancedMarkerElement({ position, map });
     };
 
     if (lat && lng) {
@@ -39,7 +41,7 @@ const Map = ({ lat, lng }: Location) => {
     }
   }, [lat, lng]);
 
-  return <div className="h-[700px] w-full pl-10 " ref={mapRef} />;
+  return <div className="h-[500px] w-150 pl-10 " ref={mapRef} />;
 };
 
 export default Map;
