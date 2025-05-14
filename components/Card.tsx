@@ -1,10 +1,11 @@
 'use client';
+import Image from 'next/image';
 
 import { Button } from "@/components/ui/button";
 import { MapPin } from "lucide-react";
-import { toast } from 'sonner'; 
+import { toast } from 'sonner';
 import { useState } from "react";
-import ViewProfile from "./ViewProfile"; 
+import ViewProfile from "./ViewProfile";
 import {
   Drawer,
   DrawerClose,
@@ -41,9 +42,11 @@ const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col md:flex-row items-start md:items-center gap-6">
-      <img
+      <Image
         className="w-24 h-24 rounded-full border object-cover shrink-0"
         src={img || '/default-profile.png'}
+        width={100}
+        height={100}
         alt="Profile"
       />
       <div className="flex flex-col space-y-4 w-full">
@@ -64,7 +67,7 @@ const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps
         <div className="flex flex-wrap gap-4">
           <Button
             className="bg-blue-600 text-white hover:bg-blue-700"
-            onClick={() => setIsDrawerOpen(true)} 
+            onClick={() => setIsDrawerOpen(true)}
           >
             View Profile
           </Button>
@@ -82,13 +85,13 @@ const Card = ({ name, email, location, info, img, gender, onShowMap }: CardProps
         </div>
       </div>
 
-      {/* Drawer for ViewProfile component */}
+
       <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
         <DrawerTrigger />
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>Profile Details</DrawerTitle>
-            <DrawerDescription>Here are the details of {name}'s profile</DrawerDescription>
+            <DrawerDescription>Here are the details of {name}&apos;s profile</DrawerDescription>
           </DrawerHeader>
           <ViewProfile name={name} email={email} location={location} info={info} img={img} gender={gender} />
           <DrawerFooter>
